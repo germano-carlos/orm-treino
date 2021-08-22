@@ -1,0 +1,12 @@
+C:\Users\carlo\RiderProjects\Treinamento-ORM\Treinamento-ORM\bin\Debug\Treinamento_ORM.exe
+C:\Users\carlo\RiderProjects\Treinamento-ORM\Treinamento-ORM\bin\Debug\Treinamento_ORM.pdb
+C:\Users\carlo\RiderProjects\Treinamento-ORM\Treinamento-ORM\obj\Debug\Treinamento-ORM.csproj.AssemblyReference.cache
+C:\Users\carlo\RiderProjects\Treinamento-ORM\Treinamento-ORM\obj\Debug\Treinamento-ORM.csproj.CoreCompileInputs.cache
+C:\Users\carlo\RiderProjects\Treinamento-ORM\Treinamento-ORM\obj\Debug\Treinamento_ORM.exe
+C:\Users\carlo\RiderProjects\Treinamento-ORM\Treinamento-ORM\obj\Debug\Treinamento_ORM.pdb
+C:\www\pessoal\orm-treino\Treinamento-ORM\bin\Debug\Treinamento_ORM.exe
+C:\www\pessoal\orm-treino\Treinamento-ORM\bin\Debug\Treinamento_ORM.pdb
+C:\www\pessoal\orm-treino\Treinamento-ORM\obj\Debug\Treinamento-ORM.csproj.AssemblyReference.cache
+C:\www\pessoal\orm-treino\Treinamento-ORM\obj\Debug\Treinamento-ORM.csproj.CoreCompileInputs.cache
+C:\www\pessoal\orm-treino\Treinamento-ORM\obj\Debug\Treinamento_ORM.exe
+C:\www\pessoal\orm-treino\Treinamento-ORM\obj\Debug\Treinamento_ORM.pdb

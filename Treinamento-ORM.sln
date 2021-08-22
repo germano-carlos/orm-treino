@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento-ORM", "Treinamento-ORM\Treinamento-ORM.csproj", "{D522A49D-DF4F-4970-874C-C07D2505EACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D522A49D-DF4F-4970-874C-C07D2505EACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D522A49D-DF4F-4970-874C-C07D2505EACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D522A49D-DF4F-4970-874C-C07D2505EACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D522A49D-DF4F-4970-874C-C07D2505EACB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
