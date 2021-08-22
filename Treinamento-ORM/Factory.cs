@@ -20,13 +20,14 @@ namespace Treinamento_ORM
                 tables.Add(table, typeof(T));
         }
         
-        public static T CreateFactory<T>(string table, string[] parametros)
+        // Para este caso em especifico o parametro será o nome da nossa tabela Usuario
+        public static T CreateFactory<T>(string table, T Value)
         {
             if (!tables.ContainsKey(table))
                 throw new Exception("É necessario inserir uma tabela para conseguir invocar a construtura");
 
             ConstructorInfo ci = tables[table].GetConstructor(new Type[] { } );
-            return (T)ci.Invoke(new object[] { parametros } );
+            return (T)ci.Invoke(new object[] { null } );
         }
     }
 }

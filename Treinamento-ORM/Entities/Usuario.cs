@@ -17,15 +17,19 @@ namespace Treinamento_ORM
         public Usuario(string nome)
         {
             var lista = (List<Usuario>) Usuario.Listar();
-            this.id = lista.OrderByDescending(s => s.id).Take(1).ToList()[0].id + 1;
+            id = lista.OrderByDescending(s => s.id).Take(1).ToList()[0].id + 1;
             this.nome = nome;
-            
-            
+
             // Adicionar no context !
+            CacheT<Usuario>.Add(this);
+            Context.Get().UsuarioSet.Add(this);
         }
 
         public static object Get(int id)
         {
+            if (id != 1)
+                return null;
+
             return new Usuario() { id = id, nome = "Carlos Germano Avelar Carvalho"};
         }
         

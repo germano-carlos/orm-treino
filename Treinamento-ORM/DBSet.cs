@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+﻿using System.Collections.Generic;
 
 namespace Treinamento_ORM
 {
-    public class CacheT<T> : IDisposable
+    public class DBSet<T>
     {
         private Dictionary<int, ItemCache<object>> itens = new Dictionary<int, ItemCache<object>>();
-        private static Cache<Usuario> cache2nivel = new Cache<Usuario>(3600);
-        public CacheT()
-        {
-        }
+        private static Cache<T> cache2nivel = new Cache<T>(3600);
 
-        public T Get<T>(int key)
+        public DBSet()
+        {
+            
+        }
+        
+        public T Get (int key)
         {
             lock (this)
             {
@@ -22,21 +21,20 @@ namespace Treinamento_ORM
 
                 // Chama o Cache de 2 nível para validação do objeto desejado !
                 var value2nivel = cache2nivel.Get<T>(key);
+                if (value2nivel == null)
+                    return default;
                 itens.Add(key, new ItemCache<object>(key, value2nivel));
                 return (T)itens[key].value;
             }
         }
-
-        public static void Add(T Value)
-        {
-            
-        }
         
-        public void Dispose()
+        public void Add(T Value)
         {
-            // Reseta os caches, qnd fechado a conexão
-            itens = new Dictionary<int, ItemCache<object>>();
-            cache2nivel = new Cache<Usuario>();
+            lock (this)
+            {
+                var type = Value.GetType().ToString().ToLower();
+                cache2nivel.Add(Value);
+            }
         }
     }
 }

@@ -41,6 +41,8 @@
         <Compile Include="Broker.cs" />
         <Compile Include="Cache.cs" />
         <Compile Include="CacheT.cs" />
+        <Compile Include="Context.cs" />
+        <Compile Include="DBSet.cs" />
         <Compile Include="Entities\ItemCache.cs" />
         <Compile Include="Entities\Usuario.cs" />
         <Compile Include="Factory.cs" />

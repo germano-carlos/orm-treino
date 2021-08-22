@@ -6,6 +6,7 @@ namespace Treinamento_ORM
     {
         internal int key;
         internal T value;
+        internal DateTime ultimaAtualizacao;
         internal ItemCache(int key, T value)
         {
             this.key = key;
@@ -15,5 +16,17 @@ namespace Treinamento_ORM
         {
             this.value = value;
         }
+        internal bool IsValid(int validadeSegundos)
+        {
+            return ultimaAtualizacao.AddSeconds(validadeSegundos) <= DateTime.Now;
+        }
+    }
+
+    public enum TypeItem
+    {
+        NEW_OBJECT = 1,
+        DELETE = 2,
+        UPDATE = 3,
+        ANY = 4
     }
 }

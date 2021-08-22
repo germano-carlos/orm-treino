@@ -8,9 +8,17 @@ namespace Treinamento_ORM
     public class Cache<T>
     {
         private Dictionary<int, ItemCache<object>> itens = new Dictionary<int, ItemCache<object>>();
-
+        private Thread Thread;
+        private int validadeSegundos;
         public Cache()
         {
+        }
+
+        public Cache(int segundos)
+        {
+            this.validadeSegundos = validadeSegundos;
+            Thread = new Thread(Limpar);
+            Thread.Start();
         }
 
         public T Get<T>(int key)
@@ -22,24 +30,35 @@ namespace Treinamento_ORM
 
                 // Chama o Broker para busca do objeto desejado !
                 var o = Broker.Obter<T>(key);
+                if (o == null)
+                    return default;
+                    
                 itens.Add(key,new ItemCache<object>(key, o));
                 return (T)itens[key].value;
             }
         }
 
-        public void Add(int key, T value)
+        public void Add(T Value)
         {
             lock (this)
             {
-                if (itens.ContainsKey(key))
-                    itens[key].update(value);
-                else
+                var type = Value.GetType().ToString().ToLower();
+                var o = Broker.Add(type, Value);
+            }
+        }
+
+        private void Limpar()
+        {
+            while (true)
+            {
+                lock (this)
                 {
-                    // Chama o Cache de 2 nível para validação do objeto desejado !
-                    bool ret = true;
-                    if(ret)
-                        itens.Add(key, new ItemCache<object>(key, value));
+                    List<int> keys = itens.Keys.ToList();
+                    foreach (int k in keys)
+                        if (!itens[k].IsValid(validadeSegundos))
+                            itens.Remove(k);
                 }
+                Thread.Sleep(1000);
             }
         }
     }

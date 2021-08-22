@@ -17,5 +17,10 @@ namespace Treinamento_ORM
                 return (T)Usuario.Listar();
             return default;
         }
+
+        public static T Add<T>(string type, T Value)
+        {
+            return Factory.CreateFactory<T>(type, Value);;
+        }
     }
 }
