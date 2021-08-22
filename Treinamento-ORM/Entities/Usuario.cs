@@ -21,7 +21,6 @@ namespace Treinamento_ORM
             this.nome = nome;
 
             // Adicionar no context !
-            CacheT<Usuario>.Add(this);
             Context.Get().UsuarioSet.Add(this);
         }
 

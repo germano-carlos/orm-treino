@@ -11,7 +11,7 @@ namespace Treinamento_ORM
         static Factory()
         {
             tables = new Dictionary<string, Type>();
-            Registry<Usuario>("usuario");
+            Registry<Usuario>("Treinamento_ORM.Usuario");
         }
         
         public static void Registry<T>(string table)
@@ -26,8 +26,11 @@ namespace Treinamento_ORM
             if (!tables.ContainsKey(table))
                 throw new Exception("É necessario inserir uma tabela para conseguir invocar a construtura");
 
-            ConstructorInfo ci = tables[table].GetConstructor(new Type[] { } );
-            return (T)ci.Invoke(new object[] { null } );
+            // Simula a criação de uma instância de objeto
+            var objectType = Type.GetType(Value.ToString());
+            var instance = Activator.CreateInstance(objectType);
+
+            return (T)instance;
         }
     }
 }

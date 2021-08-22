@@ -40,7 +40,6 @@
     <ItemGroup>
         <Compile Include="Broker.cs" />
         <Compile Include="Cache.cs" />
-        <Compile Include="CacheT.cs" />
         <Compile Include="Context.cs" />
         <Compile Include="DBSet.cs" />
         <Compile Include="Entities\ItemCache.cs" />
@@ -48,6 +47,7 @@
         <Compile Include="Factory.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Teste Anterior\CacheT.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

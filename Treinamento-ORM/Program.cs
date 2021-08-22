@@ -7,25 +7,18 @@ namespace Treinamento_ORM
     {
         public static void Main(string[] args)
         {
-            /*using (var cache = new CacheT<Usuario>())
+            using (var context = Context.Get("Treinamento-ORM"))
             {
-                
-                Usuario u1    = cache.Get<Usuario>(1);
-                Usuario u2    = cache.Get<Usuario>(1);
-                Usuario u3    = cache.Get<Usuario>(3);
-                Usuario u4    = cache.Get<Usuario>(4);
-            }
-            
-            using (var cache = new CacheT<Usuario>())
-            {
-                
-                Usuario u1     = new Usuario("Carlos Germano A Carvalho");
-            }*/
-
-            using (var context = new Context())
-            {
+                // Desafio 01 - Get Usuário
                 Usuario u1 = context.UsuarioSet.Get(2);
+                
+                // Desafio 02 - Criando novo Usuário
                 Usuario u2 = new Usuario("Carlos Germano A Carvalho");
+                u1 = context.UsuarioSet.Get(2);
+                context.Save();
+                
+                // Desafio 03 - Realizando testes de multithreading
+                
             }
         }
         

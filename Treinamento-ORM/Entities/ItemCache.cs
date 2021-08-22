@@ -7,14 +7,12 @@ namespace Treinamento_ORM
         internal int key;
         internal T value;
         internal DateTime ultimaAtualizacao;
-        internal ItemCache(int key, T value)
+        internal TypeItem type;
+        internal ItemCache(int key, T value, TypeItem typeItem = TypeItem.ANY)
         {
             this.key = key;
-            this.update(value);
-        }
-        internal void update(T value)
-        {
             this.value = value;
+            type = typeItem;
         }
         internal bool IsValid(int validadeSegundos)
         {

@@ -16,7 +16,7 @@ namespace Treinamento_ORM
 
         public Cache(int segundos)
         {
-            this.validadeSegundos = validadeSegundos;
+            validadeSegundos = segundos;
             Thread = new Thread(Limpar);
             Thread.Start();
         }
@@ -35,15 +35,6 @@ namespace Treinamento_ORM
                     
                 itens.Add(key,new ItemCache<object>(key, o));
                 return (T)itens[key].value;
-            }
-        }
-
-        public void Add(T Value)
-        {
-            lock (this)
-            {
-                var type = Value.GetType().ToString().ToLower();
-                var o = Broker.Add(type, Value);
             }
         }
 

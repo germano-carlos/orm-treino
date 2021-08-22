@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Treinamento_ORM
 {
@@ -32,8 +34,24 @@ namespace Treinamento_ORM
         {
             lock (this)
             {
-                var type = Value.GetType().ToString().ToLower();
-                cache2nivel.Add(Value);
+                int id = 2;//new Random().Next();
+                itens.Add(id, new ItemCache<object>(id, Value, TypeItem.NEW_OBJECT));
+            }
+        }
+        
+        public void Save()
+        {
+            lock (this)
+            {
+                var registers = itens.Values.Where(s => s.type == TypeItem.NEW_OBJECT).ToList();
+                // Preciso de ir no cache 2 nivel, ou posso ir ao broker direto ?
+                // cache2nivel.Add();
+                foreach (var o in registers)
+                {
+                    var element = (T)o.value;
+                    Broker.Add(element.GetType().ToString(), element);
+                }
+                
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Treinamento_ORM
 {
@@ -20,7 +21,9 @@ namespace Treinamento_ORM
 
         public static T Add<T>(string type, T Value)
         {
-            return Factory.CreateFactory<T>(type, Value);;
+            if (typeof(T) == typeof(Usuario))
+                return Factory.CreateFactory<T>(type, Value);
+            return default;
         }
     }
 }
